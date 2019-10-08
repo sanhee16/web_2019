@@ -1,0 +1,42 @@
+
+<?php
+//중복확인 하는 곳!
+//DB connect, 접속
+$conn = mysqli_connect(
+  'localhost',
+  'root',
+  '',
+  'phpstudy');
+
+mysqli_query($conn,"set session character_set_connection=utf8");
+mysqli_query($conn,"set session character_set_results=utf8;");
+mysqli_query($conn,"set session character_set_client=utf8;");
+
+$sql = "SELECT * FROM memberInformation";
+$result = mysqli_query($conn, $sql);
+$row = mysqli_fetch_array($result);
+$repet = 0;
+settype($_POST["id"], 'string');
+$id =$_POST["id"];
+/*
+0 검사안함
+1 중복안됨 -> 사용가능
+2 중복됨 -> 사용불가능
+*/
+
+
+while($row = mysqli_fetch_array($result)){
+  if($row['id']==$_POST['id']){
+    $repet = 2;
+    break;
+  }else{
+    $repet = 1;
+  }
+}
+?>
+
+  <form name = "join" action="join.php" method="POST" >
+    <input type="hidden" name="id" value = <?=$id?>>
+    <input type="hidden" name="repet" value = <?=$repet?>>
+    <script>document.join.submit()</script>
+  </form>

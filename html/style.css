@@ -1,0 +1,139 @@
+@charset "utf-8";
+/* CSS Document */
+
+  h1 {
+    color: #FF9999;
+    font-size: 40px;
+
+  }
+
+    h2 {
+      color: black;
+    }
+
+body {
+    margin: 0px;
+    font-size: 18px;
+    color: #FF3333;
+}
+a.menu-text {
+  text-decoration:none;
+  color : white;
+}
+
+a.title-text {
+  text-decoration:none;
+  color : black;
+}
+.icon{
+    text-align: center;
+    padding-top : 10px;
+    padding-left : 10px;
+    height: 60px;
+    width : 20px;
+    float: left;
+    position: absolute;
+}
+
+.menu1{
+    color : black;
+    font-weight: bold;
+    text-align: left;
+    padding-top : 20px;
+    padding-left : 70px;
+    float: left;
+    position: absolute;
+}
+#menuBar{
+  background-color : #e60000;
+  height: 60px;
+
+}
+#box {
+    position: relative;
+    height: auto;
+    margin: auto;
+    background-color: #F90;
+}
+#top {
+    background-color: #333;
+    height: 100px;
+    position: relative;
+}
+#left {
+    background-color: #09C;
+    float: left;
+    height: 500px;
+    width: 15%;
+    position: relative;
+}
+#main {
+    background-color: #3C0;
+    float: left;
+    height: 500px;
+    width: 85%;
+    position: relative;
+}
+
+#show-board{
+    background-color: #FCE9E8;
+    height: 300px;
+    width: 600px;
+    margin-left: 10px;
+
+}
+
+#show-board-title{
+    background-color: #FFCBC7;
+    height: 50px;
+    width: 600px;
+    font-weight: bold;
+    text-align: left;
+}
+
+#show-board-description{
+    background-color: #FCE9E8;
+    height: 250px;
+    width: 600px;
+    text-align: left;
+}
+
+#bottom {
+    background-color: #C0F;
+    height: 70px;
+    position: relative;
+    clear: both; <!-- 상단의 흐름을 한번 끊어주기 위해 clear를 해준다.. -.-;;?? -->
+    float: left; <!-- 새로운 흐름을 지정해줘야 깨지지 않는다-->
+}
+
+.titleInputSubmit{
+        width: 5%;
+        height: 7%;
+        margin-left : 65%;
+        font-size: 12px;
+}
+
+.titleInput{
+        width: 70%;
+        height: 20px;
+        margin-right : 10px;
+        margin-left : 10px ;
+        padding: 10px 10px;
+        font-size: 20px;
+}
+.descriptInput{
+        width: 70%;
+        height: 100px;
+        margin-right : 10px;
+        margin-left : 10px ;
+        padding: 10px 10px;
+        font-size: 20px;
+}
+
+.btn-dark {
+        width: 5%;
+        height: 7%;
+        margin-left : 65%;
+        font-size: 12px;
+        color:#C0F;
+}

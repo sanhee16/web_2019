@@ -1,0 +1,84 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>WEB</title>
+    <!--  -->
+    <link rel="stylesheet" href="style.css">
+    <div id="menuBar">
+      <?php
+        $m1 = '<a href="board.php" class="menu-text"> 메뉴 1 </a>';
+        $m2 = '<a href="m2.php" class="menu-text"> 메뉴 2 </a>';
+      ?>
+      <div class="menu1">
+      <?=$m1?>
+      <?=$m2?>
+      </div>
+
+
+
+    </div>
+  </head>
+  <body>
+    <h1>게시판</h1>
+
+    <ol>
+      <?php
+      $conn = mysqli_connect(
+        'localhost',
+        'root',
+        '',
+        'phpstudy');
+        $sql = "SELECT * FROM board";
+        $result = mysqli_query($conn, $sql);
+        $list = '';
+
+
+        while($row = mysqli_fetch_array($result)){
+          $list = $list."<li><a href=\"index.php?id={$row['id']}\">{$row['title']}</a></li>";
+          //id 값 가지고 이동!
+        }
+
+        $article = array(
+          'title'=>'Welcome',
+          'description'=>'Hello, web'
+        );
+        $update_link = '';
+        $delete_link = '';
+
+        if(isset($_GET['id'])) {
+          $sql = "SELECT * FROM board WHERE id={$_GET['id']}";
+          $result = mysqli_query($conn, $sql);
+          $row = mysqli_fetch_array($result);
+          $article['title'] = $row['title'];
+          $article['description'] = $row['description'];
+
+          $update_link = '<a href="update.php?id='.$_GET['id'].'"> 글 수정하기</a>';
+
+          $delete_link = '
+            <form action="process_delete.php" method="post">
+              <input type="hidden" name="id" value="'.$_GET['id'].'">
+              <input type="submit" value="delete">
+            </form>
+          ';
+        }
+
+      ?>
+      <?=$list?>
+    </ol>
+    <a href="create.php">새로운 글 작성하기</a>
+    <h2>Welcome</h2>
+    DATABASE 연습하는 web </br></br>
+    ----------------------------------------------
+    <h2><?=$article['title']?></h2>
+    <?=$article['description']?>
+    </br></br>
+
+
+
+    <?=$update_link?>
+    </br></br>
+    <?=$delete_link?>
+
+  </body>
+</html>
